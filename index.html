@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manzar Shahaan - Professional Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --text-color: #333;
-            --background-color: #f4f4f4;
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --text-color: #e0e0e0;
+            --background-color: #121212;
+            --card-background: #1e1e1e;
         }
 
         * {
@@ -19,49 +21,89 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-color);
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         header {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
+            background-color: var(--secondary-color);
             padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
-        h1 {
-            margin-bottom: 0.5rem;
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .contact-info {
-            font-size: 0.9rem;
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
         }
 
         main {
-            padding: 2rem 0;
+            padding: 6rem 0 2rem;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
 
         h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
             padding-bottom: 0.5rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             margin-bottom: 1rem;
         }
 
         .job {
+            background-color: var(--card-background);
+            padding: 1rem;
             margin-bottom: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .job:hover {
+            transform: translateY(-5px);
         }
 
         .job-title {
@@ -71,7 +113,7 @@
 
         .job-details {
             font-style: italic;
-            color: #666;
+            color: #888;
             margin-bottom: 0.5rem;
         }
 
@@ -80,94 +122,160 @@
         }
 
         footer {
-            background-color: var(--primary-color);
-            color: white;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
             text-align: center;
             padding: 1rem;
-            font-size: 0.8rem;
+            margin-top: 2rem;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
+        @media (max-width: 768px) {
+            .burger-menu {
+                display: block;
             }
 
-            header, main, footer {
-                padding: 1rem;
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary-color);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header>
+        <div class="container header-content">
             <h1>Manzar Shahaan</h1>
-            <div class="contact-info">
-                <p>Email: manzarshahaan@protonmail.com</p>
-                <p>Location: Halifax, Nova Scotia</p>
-            </div>
-        </header>
-
-        <main>
-            <section id="profile">
-                <h2>Profile</h2>
-                <p>Aspiring computer scientist with diverse work experience and a passion for technology and customer service. Skilled in various roles across retail, logistics, and automotive industries, demonstrating adaptability and a customer-centric approach.</p>
-            </section>
-
-            <section id="experience">
-                <h2>Experience</h2>
-                <div class="job">
-                    <div class="job-title">Designer/Partner</div>
-                    <div class="job-details">SVYDE, Mysuru, Karnataka — Oct 2020 - Oct 2024</div>
-                    <ul>
-                        <li>Co-founded and managed a clothing product business</li>
-                        <li>Led product design, business setup, and sales strategies</li>
-                        <li>Developed and implemented customer-centric business models</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-title">Detailer</div>
-                    <div class="job-details">AVIS Budget, Halifax, Nova Scotia — Sep 2022 - Aug 2024</div>
-                    <ul>
-                        <li>Ensured smooth customer pickups and drop-offs for rental equipment</li>
-                        <li>Contributed to the success of D. J. DUGGAN's family franchise</li>
-                        <li>Maintained high standards of vehicle preparation and customer satisfaction</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-title">Parts Advisor</div>
-                    <div class="job-details">Parts Source, Halifax, Nova Scotia — May 2023</div>
-                    <ul>
-                        <li>Organized daily operations for auto shops and individual customers</li>
-                        <li>Provided expert advice on automotive parts and accessories</li>
-                        <li>Utilized technological platforms to enhance customer service and inventory management</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="education">
-                <h2>Education</h2>
-                <p>Bachelor of Science in Computer Science (In Progress)</p>
-                <p>Started: 2020</p>
-            </section>
-
-            <section id="skills">
-                <h2>Skills</h2>
+            <nav>
+                <div class="burger-menu">☰</div>
                 <ul>
-                    <li>Philanthropy and community engagement</li>
-                    <li>Effective use of technological platforms</li>
-                    <li>Customer-centric business approach</li>
-                    <li>Adaptability across various industries</li>
-                    <li>Strong problem-solving and analytical skills</li>
+                    <li><a href="#profile">Profile</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
                 </ul>
-            </section>
-        </main>
+            </nav>
+        </div>
+    </header>
 
-        <footer>
-            <p>&copy; 2024 Manzar Shahaan. All rights reserved.</p>
-        </footer>
-    </div>
+    <main class="container">
+        <section id="profile">
+            <h2>Profile</h2>
+            <p>Aspiring computer scientist with diverse work experience and a passion for technology and customer service. Skilled in various roles across retail, logistics, and automotive industries, demonstrating adaptability and a customer-centric approach.</p>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="job">
+                <div class="job-title">Designer/Partner</div>
+                <div class="job-details">SVYDE, Mysuru, Karnataka — Oct 2020 - Oct 2024</div>
+                <ul>
+                    <li>Co-founded and managed a clothing product business</li>
+                    <li>Led product design, business setup, and sales strategies</li>
+                    <li>Developed and implemented customer-centric business models</li>
+                </ul>
+            </div>
+            
+            <div class="job">
+                <div class="job-title">Detailer</div>
+                <div class="job-details">AVIS Budget, Halifax, Nova Scotia — Sep 2022 - Aug 2024</div>
+                <ul>
+                    <li>Ensured smooth customer pickups and drop-offs for rental equipment</li>
+                    <li>Contributed to the success of D. J. DUGGAN's family franchise</li>
+                    <li>Maintained high standards of vehicle preparation and customer satisfaction</li>
+                </ul>
+            </div>
+            
+            <div class="job">
+                <div class="job-title">Parts Advisor</div>
+                <div class="job-details">Parts Source, Halifax, Nova Scotia — May 2023</div>
+                <ul>
+                    <li>Organized daily operations for auto shops and individual customers</li>
+                    <li>Provided expert advice on automotive parts and accessories</li>
+                    <li>Utilized technological platforms to enhance customer service and inventory management</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <p>Bachelor of Science in Computer Science (In Progress)</p>
+            <p>Started: 2020</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Philanthropy and community engagement</li>
+                <li>Effective use of technological platforms</li>
+                <li>Customer-centric business approach</li>
+                <li>Adaptability across various industries</li>
+                <li>Strong problem-solving and analytical skills</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Manzar Shahaan. All rights reserved.</p>
+        <p>Email: manzarshahaan@protonmail.com | Location: Halifax, Nova Scotia</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const burgerMenu = document.querySelector('.burger-menu');
+            const nav = document.querySelector('nav ul');
+
+            burgerMenu.addEventListener('click', () => {
+                nav.classList.toggle('show');
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Add animation to job cards
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.job').forEach(job => {
+                job.style.opacity = 0;
+                job.style.transform = 'translateY(20px)';
+                job.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(job);
+            });
+        });
+    </script>
 </body>
 </html>
